@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Mercado: Melena de León 2026</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfaf7;
+            color: #1a1a1a;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            height: 300px;
+        }
+
+        /* Estética de tarjeta premium */
+        .glass-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 24px;
+            transition: transform 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #b45309, #78350f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-100">
+
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-amber-700 text-2xl"></i>
+                <span class="font-extrabold text-xl tracking-tight">MERCADO<span class="text-amber-600">FUNGI</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-semibold text-gray-600">
+                <a href="#contexto" class="hover:text-amber-700 transition">Contexto</a>
+                <a href="#audiencia" class="hover:text-amber-700 transition">Audiencia</a>
+                <a href="#roi" class="hover:text-amber-700 transition">ROI Estratégico</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-widest">Exclusivo: Proyecciones 2026</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mt-6 leading-[1.1]">
+                Vende <span class="gradient-text">Claridad Mental</span>, no solo hongos.
+            </h1>
+            <p class="mt-8 text-lg text-gray-600 leading-relaxed">
+                El mercado no busca "Hericium erinaceus". Busca **productividad infinita** y el fin de la niebla mental. Aquí el análisis de por qué el beneficio mata al tecnicismo.
+            </p>
+        </div>
+        <div class="relative">
+            <img src="https://images.unsplash.com/photo-1508747703725-719777637510?auto=format&fit=crop&q=80&w=800" 
+                 alt="Lion's Mane Mushroom" class="rounded-[40px] shadow-2xl rotate-3 hover:rotate-0 transition duration-500">
+            <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-amber-50">
+                <p class="text-3xl font-bold text-amber-600">+170%</p>
+                <p class="text-sm font-bold text-gray-500">Crecimiento Proyectado</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 space-y-32 pb-32">
+
+        <section id="contexto" class="scroll-mt-32">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">Dominio del Mercado Nootrópico</h2>
+            </div>
+            <div class="glass-card p-8">
+                <div class="chart-container">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="audiencia" class="scroll-mt-32 grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-10 flex flex-col justify-center">
+                <h3 class="text-2xl font-bold mb-6 italic text-gray-800">"¿Por qué lo compran?"</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold">90%</div>
+                        <p class="text-gray-700 font-semibold text-lg">Buscan **Resultados** (Foco, Memoria)</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold">10%</div>
+                        <p class="text-gray-500 font-medium text-lg">Interés científico/técnico</p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-card p-10 flex items-center justify-center">
+                <div class="w-64 h-64">
+                    <canvas id="searchIntentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi" class="scroll-mt-32 bg-gray-900 rounded-[48px] p-12 text-white overflow-hidden relative">
+            <div class="relative z-10 text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Impacto Real en Conversión</h2>
+                <p class="text-gray-400">Comparativa: Marketing de Beneficio vs. Marketing Técnico</p>
+            </div>
+            
+            <div class="bg-white/5 backdrop-blur-md rounded-3xl p-8 mb-12 border border-white/10">
+                <div class="chart-container" style="height: 350px;">
+                    <canvas id="funnelChart"></canvas>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <i class="fa-solid fa-bolt text-amber-400 text-3xl mb-4"></i>
+                    <div class="text-4xl font-black text-white">10x</div>
+                    <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">Alcance Viral</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <i class="fa-solid fa-users text-amber-400 text-3xl mb-4"></i>
+                    <div class="text-4xl font-black text-white">+45%</div>
+                    <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">Retención LTV</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <i class="fa-solid fa-piggy-bank text-amber-400 text-3xl mb-4"></i>
+                    <div class="text-4xl font-black text-white">-30%</div>
+                    <p class="text-gray-400 text-sm mt-2 uppercase tracking-widest">Reducción CAC</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-white py-20 text-center border-t border-white/10">
+        <div class="max-w-2xl mx-auto px-6">
+            <i class="fa-solid fa-brain text-4xl text-amber-600 mb-6"></i>
+            <h2 class="text-3xl font-bold mb-6 italic">"El hongo es el vehículo, la genialidad es el destino."</h2>
+            <div class="pt-10 mt-10 border-t border-white/5 text-gray-500 text-xs tracking-widest">
+                &copy; 2026 ESTRATEGIA FUNGI • ALTO RENDIMIENTO
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ajustes globales de legibilidad
+            Chart.defaults.font.family = "'Plus Jakarta Sans', sans-serif";
+            Chart.defaults.font.size = 13;
+
+            // 1. Crecimiento (Fondo Claro)
+            new Chart(document.getElementById('growthChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2023', '2024', '2025', '2026'],
+                    datasets: [{
+                        label: 'Interés en Nootrópicos',
+                        data: [100, 130, 160, 210],
+                        borderColor: '#b45309',
+                        backgroundColor: 'rgba(180, 83, 9, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { display: false }, ticks: { color: '#6b7280' } },
+                        x: { grid: { display: false }, ticks: { color: '#6b7280' } }
+                    }
+                }
+            });
+
+            // 2. Intención (Dona)
+            new Chart(document.getElementById('searchIntentChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Busca Solución', 'Busca Especie'],
+                    datasets: [{
+                        data: [90, 10],
+                        backgroundColor: ['#b45309', '#e5e7eb'],
+                        borderWidth: 0
+                    }]
+                },
+                options: { cutout: '80%', plugins: { legend: { display: false } } }
+            });
+
+            // 3. Funnel (ESTE ES EL QUE NO SE VEÍA)
+            // Cambiamos el color de los ticks para el fondo oscuro
+            new Chart(document.getElementById('funnelChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Alcance', 'Clics', 'Compra'],
+                    datasets: [
+                        {
+                            label: 'Marketing Beneficio',
+                            data: [100, 85, 40],
+                            backgroundColor: '#fbbf24',
+                            borderRadius: 12
+                        },
+                        {
+                            label: 'Marketing Técnico',
+                            data: [30, 10, 2],
+                            backgroundColor: '#4b5563',
+                            borderRadius: 12
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { 
+                        legend: { labels: { color: '#ffffff', font: { weight: 'bold' } } } 
+                    },
+                    scales: {
+                        x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: '#9ca3af' } },
+                        y: { grid: { display: false }, ticks: { color: '#ffffff', font: { weight: 'bold' } } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
